@@ -14,7 +14,7 @@ $torrent = null;
 $file = null;
 
 foreach (Flatfoot\Functions::scan('./torrents', 'torrent') as $f) {
-    $file = $f;
+    $file = iconv("windows-1251", "UTF-8", $f); 
     $torrent = new Flatfoot\TorrentRW($f);
     if ($torrent->hash_info() == $id) {
         $found = true;
