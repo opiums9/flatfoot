@@ -55,6 +55,7 @@ class Functions
     public static function displayTorrent($t)
     {
         $torrent = new TorrentRW($t);
+        $t = iconv("windows-1251", "UTF-8", $t);
 
         return '<tr>
                     <td><a href="/torrent?id=' . $torrent->hash_info() . '">' . $torrent->name() . '</a></td>
